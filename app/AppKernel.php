@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            
+            # Codehack
+            new CodeHack\CoreBundle\CodeHackCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
