@@ -1,3 +1,8 @@
+code_hack_api_mobile:
+    resource: "@CodeHackApiMobileBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 code_hack_home_page:
     resource: "@CodeHackHomePageBundle/Controller/"
     type:     annotation
