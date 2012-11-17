@@ -3,6 +3,7 @@
 namespace CodeHack\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Emergency
@@ -69,6 +70,19 @@ class Emergency
      * @ORM\Column(name="approved", type="boolean")
      */
     private $approved;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="BaseRequirement", mappedBy="emergency")
+     */
+    private $requirements;
+    
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->requirements = new ArrayCollection();
+    }
 
 
     /**

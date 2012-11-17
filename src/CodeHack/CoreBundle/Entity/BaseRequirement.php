@@ -41,6 +41,12 @@ class BaseRequirement
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Emergency", inversedBy="requirements")
+     */
+    private $emergency;
 
 
     /**
