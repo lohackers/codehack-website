@@ -1,0 +1,19 @@
+# Bootstrap
+app/bootstrap*
+
+# Composer
+composer.phar
+
+# Netbeans
+nbproject
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
+# Configuration files
+app/config/parameters.ini
+app/config/parameters.yml
