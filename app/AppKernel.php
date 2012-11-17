@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new CodeHack\CoreBundle\CodeHackCoreBundle(),
             new CodeHack\CommonAssetsBundle\CodeHackCommonAssetsBundle(),
             new CodeHack\HomePageBundle\CodeHackHomePageBundle(),
+            new CodeHack\BoilerplateBundle\CodeHackBoilerplateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
