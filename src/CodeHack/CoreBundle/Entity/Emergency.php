@@ -72,18 +72,20 @@ class Emergency
     private $approved;
     
     /**
-     * @ORM\OneToMany(targetEntity="BaseRequirement", mappedBy="emergency")
+     * @ORM\OneToMany(targetEntity="People", mappedBy="emergency")
      */
-    private $requirements;
+    private $people;
     
     /**
-     * Constructor.
+     * @ORM\OneToMany(targetEntity="Money", mappedBy="emergency")
      */
-    public function __construct()
-    {
-        $this->requirements = new ArrayCollection();
-    }
-
+    private $money;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Material", mappedBy="emergency")
+     */
+    private $material;
+    
 
     /**
      * Get id
@@ -287,5 +289,111 @@ class Emergency
     public function getRequirements()
     {
         return $this->requirements;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->people = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add people
+     *
+     * @param \CodeHack\CoreBundle\Entity\People $people
+     * @return Emergency
+     */
+    public function addPeople(\CodeHack\CoreBundle\Entity\People $people)
+    {
+        $this->people[] = $people;
+    
+        return $this;
+    }
+
+    /**
+     * Remove people
+     *
+     * @param \CodeHack\CoreBundle\Entity\People $people
+     */
+    public function removePeople(\CodeHack\CoreBundle\Entity\People $people)
+    {
+        $this->people->removeElement($people);
+    }
+
+    /**
+     * Get people
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPeople()
+    {
+        return $this->people;
+    }
+
+    /**
+     * Add money
+     *
+     * @param \CodeHack\CoreBundle\Entity\Money $money
+     * @return Emergency
+     */
+    public function addMoney(\CodeHack\CoreBundle\Entity\Money $money)
+    {
+        $this->money[] = $money;
+    
+        return $this;
+    }
+
+    /**
+     * Remove money
+     *
+     * @param \CodeHack\CoreBundle\Entity\Money $money
+     */
+    public function removeMoney(\CodeHack\CoreBundle\Entity\Money $money)
+    {
+        $this->money->removeElement($money);
+    }
+
+    /**
+     * Get money
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMoney()
+    {
+        return $this->money;
+    }
+
+    /**
+     * Add material
+     *
+     * @param \CodeHack\CoreBundle\Entity\Material $material
+     * @return Emergency
+     */
+    public function addMaterial(\CodeHack\CoreBundle\Entity\Material $material)
+    {
+        $this->material[] = $material;
+    
+        return $this;
+    }
+
+    /**
+     * Remove material
+     *
+     * @param \CodeHack\CoreBundle\Entity\Material $material
+     */
+    public function removeMaterial(\CodeHack\CoreBundle\Entity\Material $material)
+    {
+        $this->material->removeElement($material);
+    }
+
+    /**
+     * Get material
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMaterial()
+    {
+        return $this->material;
     }
 }

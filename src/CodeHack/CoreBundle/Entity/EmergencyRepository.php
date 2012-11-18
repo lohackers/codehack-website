@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class EmergencyRepository extends EntityRepository
 {
+  
+  public function getPeopleList($id)
+    {  
+      $privacy= $this->getEntityManager()
+              ->createQuery(" SELECT * FROM CodeHack\CoreBundle\Entity\Privacy p
+                JOIN Smammas\UserBundle\Entity\User u
+                WITH p.user_id = u.id
+                WHERE u.id = :id")
+              ->setParameter('id', $id)
+              ->getResult();
+     if (count($privacy) > 0)
+       return true;
+     return false;
+    }
+  
 }

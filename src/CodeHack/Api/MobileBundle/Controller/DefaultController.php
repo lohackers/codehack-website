@@ -48,7 +48,8 @@ class DefaultController extends Controller
      */
     public function addEmergencyAction()
     {
-        return array();
+        $response = new Response(json_encode("caffelatte:bocchini"));
+        return $response;
     }
     
     /** 
@@ -58,15 +59,24 @@ class DefaultController extends Controller
      */
     public function emergencyDetailAction($id)
     {
-      
+        $people_json = array();
         $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
         $emergency = $em->find($id);
-        $emergencies_json = array();
-        var_dump($emergency->getRequirements());die;
-          
+        $peoples = $emergency->getPeople(); //prendiamo tutte le richieste di persone
+        foreach ($peoples as $key => $people) {
+          $total  = rand(0, 90);
+          $people_json[] = array(
+              "total" => $total ,
+              "remaining" => rand(0, $total),
+              "description" => $people->getDescription() ,
+              "title" => $people->getTitle()	//Primary key
+          );
+        }
+        
+        $emergencies_json = array();  
           $date = $emergency->getTimestamp();
           $emergencies_json['emergencies'][] = array(
-              "id" => $emergency->getID(),
+               "id" => $emergency->getID(),
               "loc" => array(
                   "lon" => $emergency->getLng(),
                   "lat" => $emergency->getLat()
@@ -75,6 +85,7 @@ class DefaultController extends Controller
               "level" => $emergency->getLevel(),
               "intensity" => $emergency->getIntensity(),
               "timestamp" => $date->format("Y-m-d h:m:s"),
+              "people" => $people_json
           );
         
         $response = new Response(json_encode($emergencies_json));
