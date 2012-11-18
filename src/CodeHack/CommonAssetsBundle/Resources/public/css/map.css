@@ -2,7 +2,7 @@
   width: 100%;
   height: 450px; }
 
-#map_canvas h3 {
+#map_canvas h2 {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -10,3 +10,44 @@
   padding: 0;
   text-transform: uppercase;
   color: #000; }
+
+#map_canvas dl {
+  height: 130px;
+  width: 300px; }
+
+#map_canvas dt {
+  float: left;
+  clear: left;
+  color: #ff6565;
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  width: 90px; }
+
+#map_canvas dd {
+  float: left;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block; }
+
+#map_canvas dd:first-of-type {
+  float: left;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  background: url("../img/fire-icon.png") no-repeat 0 0 transparent;
+  background-size: 15px 22px;
+  width: 100px;
+  padding-left: 20px; }
+
+#map_canvas a.show {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  background-color: #ff6565;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-transform: uppercase; }

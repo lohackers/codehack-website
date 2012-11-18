@@ -11,14 +11,15 @@ header {
     margin: 0 auto; }
     header #header-inner #website-logo {
       margin: 0;
+      /*padding:0 0 0 56px;*/
       padding: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-indent: 100%;
       float: left;
       width: 200px;
       height: 70px;
-      background: url("../img/website_logo.png") no-repeat 0 0 transparent; }
+      color: #FFF;
+      line-height: 70px;
+      font-size: 34px;
+      /*background:url('../img/website_logo.png') no-repeat center left transparent;*/ }
     header #header-inner nav {
       float: right;
       width: 482px; }
@@ -31,7 +32,7 @@ header {
         border: 0;
         outline: 0; }
       header #header-inner nav ul {
-        background: url("../img/main_nav_bg_search.png") no-repeat 440px 0 transparent; }
+        background: url("../img/main_nav_bg_fire.png") no-repeat 440px 0 transparent; }
       header #header-inner nav li {
         float: left;
         width: 131px;
@@ -39,7 +40,7 @@ header {
         margin: 0 -43px 0 0;
         overflow: hidden;
         background: #FFF;
-        background: url("../img/main_nav_bg_normal.png") no-repeat 0 0 transparent; }
+        background: url("../img/main_nav_bg_normal.png") no-repeat -160px 0 transparent; }
         header #header-inner nav li.nav-item_search-bg {
           background-image: url("../img/main_nav_bg_search.png"); }
         header #header-inner nav li.nav-item_location-bg {
@@ -143,7 +144,8 @@ h4 {
 .vertical_meter {
   position: relative;
   clear: both;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 0 0 0 50px; }
   .vertical_meter .vertical_meter_container {
     position: relative;
     /*width: 115px;*/
@@ -173,6 +175,13 @@ h4 {
       font-size: 92px;
       padding: 0 0 0 38px;
       background: url("../img/black_arrow_left.png") no-repeat center left transparent; }
+  .vertical_meter .coins-icon {
+    position: absolute;
+    bottom: 14px;
+    right: -160px;
+    width: 136px;
+    height: 105px;
+    background: url("../img/coins-icon.png") no-repeat 0 0 transparent; }
 
 footer {
   height: 100px;
@@ -245,8 +254,8 @@ footer {
 /** * * * * * * * *
  * HOVER CSS3 EFFECTS - SCALING
 ** * * * * * * * */
-#main_container p, #main_container h3, #main_container h4, #main_container dl, #main_container img, #main_container .vertical_meter_container,
-#main_container #materials .obtained, #main_container #materials .desired, #main_container .horizontal_meter_container {
+#content_container h2, #content_container h3, #content_container h4, #content_container dl, #content_container img, #content_container .vertical_meter_container,
+#content_container #materials .obtained, #content_container #materials .desired, #content_container .horizontal_meter_container, #content_container .we-rised-text {
   -webkit-transition: all 0.3s ease-out;
   /* Saf3.2+, Chrome */
   -moz-transition: all 0.3s ease-out;
@@ -256,8 +265,8 @@ footer {
   -o-transition: all 0.3s ease-out;
   /* Opera 10.5+ */
   transition: all 0.3s ease-out; }
-#main_container p:hover, #main_container h3:hover, #main_container h4:hover, #main_container dl:hover, #main_container img:hover, #main_container .vertical_meter_container:hover,
-#main_container #materials .obtained:hover, #main_container #materials .desired:hover, #main_container .horizontal_meter_container:hover {
+#content_container h2:hover, #content_container h3:hover, #content_container h4:hover, #content_container dl:hover, #content_container img:hover, #content_container .vertical_meter_container:hover,
+#content_container #materials .obtained:hover, #content_container #materials .desired:hover, #content_container .horizontal_meter_container:hover, #content_container .we-rised-text:hover {
   transform: scale(1.02, 1.02);
   -webkit-transform: scale(1.02, 1.02);
   -o-transform: scale(1.02, 1.02);

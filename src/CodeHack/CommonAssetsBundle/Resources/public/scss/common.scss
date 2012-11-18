@@ -22,14 +22,15 @@ header{
 
 		#website-logo{
 			margin:0;
+			/*padding:0 0 0 56px;*/
 			padding:0;
-			white-space:nowrap;
-			overflow:hidden;
-			text-indent:100%;
 			float:left;
 			width:200px;
 			height:70px;
-			background:url('#{$img_source_url}/website_logo.png') no-repeat 0 0 transparent;
+			color:#FFF;
+			line-height: 70px;
+			font-size:34px;
+			/*background:url('#{$img_source_url}/website_logo.png') no-repeat center left transparent;*/
 			}
 
 		nav{
@@ -47,7 +48,7 @@ header{
 				outline:0;
 				}
 
-			ul{background:url('#{$img_source_url}/main_nav_bg_search.png') no-repeat 440px 0 transparent;}
+			ul{background:url('#{$img_source_url}/main_nav_bg_fire.png') no-repeat 440px 0 transparent;}
 
 			li{
 				float: left;
@@ -56,7 +57,7 @@ header{
 				margin:0 -43px 0 0;
 				overflow:hidden;
 				background:#FFF;
-				background:url('#{$img_source_url}/main_nav_bg_normal.png') no-repeat 0 0 transparent;
+				background:url('#{$img_source_url}/main_nav_bg_normal.png') no-repeat -160px 0 transparent;
 
 				// Background classes
 				&.nav-item_search-bg{background-image:url('#{$img_source_url}/main_nav_bg_search.png');}
@@ -172,6 +173,8 @@ h4{
 	position: relative;
 	clear: both;
 	overflow:hidden;
+	margin:0 0 0 50px;
+
 	
 	.vertical_meter_container {
 		position: relative;
@@ -207,6 +210,15 @@ h4{
 			padding:0 0 0 38px;
 			background:url('#{$img_source_url}/black_arrow_left.png') no-repeat center left transparent;
 			}
+		}
+	
+	.coins-icon{
+		position: absolute;
+		bottom:14px;
+		right: -160px;
+		width:136px;
+		height:105px;
+		background:url('#{$img_source_url}/coins-icon.png') no-repeat 0 0 transparent;
 		}
 	}
 	
@@ -301,23 +313,23 @@ footer{
 /** * * * * * * * *
  * HOVER CSS3 EFFECTS - SCALING
 ** * * * * * * * */
-#main_container{
-	p,h3,h4,dl,img,.vertical_meter_container,
-	#materials .obtained,#materials .desired,.horizontal_meter_container{
+#content_container{
+	h2,h3,h4,dl,img,.vertical_meter_container,
+	#materials .obtained,#materials .desired,.horizontal_meter_container,.we-rised-text{
 		-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
 		-moz-transition: all 0.3s ease-out;  /* FF4+ */
 		-ms-transition: all 0.3s ease-out;  /* IE10 */
 		-o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
 		transition: all 0.3s ease-out;
-	}
-	p:hover,h3:hover,h4:hover,dl:hover,img:hover,.vertical_meter_container:hover,
-	#materials .obtained:hover,#materials .desired:hover,.horizontal_meter_container:hover{
+		}
+	h2:hover,h3:hover,h4:hover,dl:hover,img:hover,.vertical_meter_container:hover,
+	#materials .obtained:hover,#materials .desired:hover,.horizontal_meter_container:hover,.we-rised-text:hover{
 		transform: scale(1.02,1.02);
 	    -webkit-transform: scale(1.02,1.02);
 	    -o-transform: scale(1.02,1.02);
 	    -moz-transform: scale(1.02,1.02);
+		}
 	}
-}
 
 // SOCKET IO DEBUG BAR
 
