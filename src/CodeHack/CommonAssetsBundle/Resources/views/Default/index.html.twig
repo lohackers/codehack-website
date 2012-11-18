@@ -1,1 +1,150 @@
-Hello {{ name }}!
+{% extends 'CodeHackBoilerplateBundle:Default:index.html.twig' %}
+
+{% block meta %}
+    <meta property="og:title" content="Base og title">
+    <meta property="og:description" content="Base og description.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://baseurl.com/">
+    <meta property="og:image" content="http://baseurl.com/image/">
+{% endblock meta %}
+
+{% block stylesheets %} 
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/map.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+{% endblock stylesheets %}
+
+{% block content %}
+<!--Header-->
+<header>
+    <div id="header-inner">
+        <!--Logo-->
+        <a href="/"><h1 id="website-logo">H-elp</h1></a>
+
+        <!--Main menu-->
+        <nav>
+            <ul>
+                <li class="nav-item_search-bg"><a href="#">Search</a></li>
+                <li class="nav-item_location-bg"><a href="#">Location</a></li>
+                <li class="nav-item_flood-bg"><a href="#">Flood</a></li>
+                <li class="nav-item_quake-bg"><a href="#">Earth quake</a></li>
+                <li class="nav-item_fire-bg"><a href="#">Fire</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<div id="main_container">
+    <section id="map_container">
+        <div id="map_canvas"></div>
+    </section>
+
+
+    <div id="content_container">
+
+        <h3>Contribuisci anche tu!</h3>
+        <section id="people" class="help-section">
+            <h4>Persone</h4>
+            <dl class="obtained">
+                <dt>Hanno già contribuito</dt>
+                <dd>20</dd>
+            </dl>
+            <dl class="people-definition">
+                <dt>infermieri</dt>
+                <dd>11</dd>
+                <dd>80</dd>
+                <dt>dottori</dt>
+                <dd>1</dd>
+                <dd>5</dd>
+                <dt>spalatori</dt>
+                <dd>5</dd>
+                <dd>5</dd>
+                <dt>aiutanti</dt>
+                <dd>2</dd>
+                <dd>10</dd>
+            </dl>
+            <dl class="desired">
+                <dt>Ce ne servono</dt>
+                <dd>100</dd>
+            </dl>
+
+            <!-- METER ORIZZONTALE: impostare il valore percentuale in modo dinamico -->
+            <div class="horizontal_meter_container people">
+                <div class="horizontal_meter_value people" style="width: 50%">50%</div>
+            </div>
+
+        </section>
+        <section id="money" class="help-section">
+            <h4>Donazioni</h4>
+            <dl class="obtained">
+                <dt>Hanno già donato</dt>
+                <dd>1200 <span>&euro;</span></dd>
+            </dl>
+            <dl class="money-definition">
+                <dt>pasti</dt>
+                <dd>100</dd>
+                <dd>5 euro</dd>
+                <dt>coperte</dt>
+                <dd>100</dd>
+                <dd>10 euro</dd>
+                <dt>tenda</dt>
+                <dd>10</dd>
+                <dd>100 &euro;</dd>
+            </dl>
+            <dl class="desired">
+                <dt>Ci servono</dt>
+                <dd>2500 <span>&euro;</span></dd>
+            </dl>
+            <!-- METER VERTICALE: impostare il valore percentuale in modo dinamico -->
+            <div class="vertical_meter_container">
+                <div class="vertical_meter_value" style="height: 25%">25%</div>
+            </div>
+        </section>
+
+        <section id="materials" class="help-section">
+            <h4>Materiali</h4>
+            <dl class="obtained">
+                <dt>Sono stati promessi</dt>
+                <dd>40</dd>
+            </dl>
+            <dl class="materials-definition">
+                <dt>vestiti</dt>
+                <dt>materiale 1</dt>
+                <dd>100</dd>
+            </dl>
+            <dl class="desired">
+                <dt>Ce ne servono</dt>
+                <dd>100</dd>
+            </dl>
+        </section>
+
+    </div>
+
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ asset('bundles/codehackcommonassets/js/vendor/jquery-1.8.2.min.js') }}><\/script>')</script>
+    <script src="{{ asset('bundles/codehackcommonassets/js/plugins.js') }}"></script>
+    <script src="{{ asset('bundles/codehackcommonassets/js/main.js') }}"></script>
+    <script src="{{ asset('bundles/codehackcommonassets/js/vendor/jquery.ui.map.js') }}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu5MGJH3YE014bbjfhfjD0gE9KBr_6M7c&sensor=true"></script>
+{% endblock javascripts %}
+
+{% block analytics_js %}
+    {#
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    #}
+{% endblock analytics_js %}

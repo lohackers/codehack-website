@@ -1,0 +1,57 @@
+body {
+  font-family: "Bitter", Courier, Monaco, serif;
+  color: #ff6565;
+  background: url("/img/bg_main.png") repeat center center white; }
+
+#content_container {
+  width: 960px;
+  margin: 0 auto; }
+
+header {
+  height: 70px;
+  background-color: #fcf; }
+
+h3 {
+  text-align: center; }
+
+h4 {
+  text-align: center; }
+
+.help-section {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center; }
+
+.horizontal_meter_container {
+  position: relative;
+  height: 116px;
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .horizontal_meter_container.people {
+    background: url("/img/people-icon.png") repeat left bottom transparent; }
+  .horizontal_meter_container .horizontal_meter_value {
+    height: 116px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -1000px;
+    overflow: hidden; }
+    .horizontal_meter_container .horizontal_meter_value.people {
+      background: url("/img/people-icon.png") repeat left top transparent; }
+
+.vertical_meter_container {
+  position: relative;
+  width: 115px;
+  height: 200px;
+  background-color: #dadada;
+  border-radius: 3px; }
+  .vertical_meter_container .vertical_meter_value {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -1000px;
+    overflow: hidden;
+    background-color: #000000;
+    border-radius: 3px; }

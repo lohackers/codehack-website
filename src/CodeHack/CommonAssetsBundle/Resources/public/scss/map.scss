@@ -1,0 +1,16 @@
+@import "variables.scss";
+
+#map_canvas{
+	width: $map_width;
+	height: $map_height;
+}
+
+#map_canvas h3{
+	font-family: $map_font-family;
+	font-weight: 700; 
+	font-size: 18px;
+	margin: 0;
+	padding: 0; 
+	text-transform: uppercase;
+	color: #000;
+}
