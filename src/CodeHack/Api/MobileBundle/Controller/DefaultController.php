@@ -248,4 +248,16 @@ class DefaultController extends Controller
         return $response;
     }
     
+    /** 
+     * @Route("/fakehomepage")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function fakeHomepageAction()
+    {
+        return $this->render('CodeHackHomePageBundle:Default:fake.html.twig', array(
+            
+        ));
+    } 
+    
 } 
