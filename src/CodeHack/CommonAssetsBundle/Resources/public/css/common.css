@@ -1,7 +1,7 @@
 body {
   font-family: "Bitter", Courier, Monaco, serif;
   color: #ff6565;
-  background: url("/img/bg_main.png") repeat center center white; }
+  background: url("../img/bg_main.png") repeat center center white; }
 
 #content_container {
   width: 960px;
@@ -29,7 +29,7 @@ h4 {
   margin: 0 auto;
   overflow: hidden; }
   .horizontal_meter_container.people {
-    background: url("/img/people-icon.png") repeat left bottom transparent; }
+    background: url("../img/people-icon.png") repeat left bottom transparent; }
   .horizontal_meter_container .horizontal_meter_value {
     height: 116px;
     font-size: 0;
@@ -37,7 +37,7 @@ h4 {
     text-indent: -1000px;
     overflow: hidden; }
     .horizontal_meter_container .horizontal_meter_value.people {
-      background: url("/img/people-icon.png") repeat left top transparent; }
+      background: url("../img/people-icon.png") repeat left top transparent; }
 
 .vertical_meter_container {
   position: relative;
