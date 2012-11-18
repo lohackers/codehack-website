@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use CodeHack\CoreBundle\Entity\Emergency;
+use CodeHack\CoreBundle\Entity\Offers;
 use CodeHack\CoreBundle\Entity\Money;
 use CodeHack\CoreBundle\Entity\People;
 use CodeHack\CoreBundle\Entity\Material;
@@ -212,13 +213,39 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/emergencies/:id/offers")
+     * @Route("/emergencies/{id}/offers")
      * @Method({"POST"})
      * @Template()
      */
     public function emergencyOfferAction($id)
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $emergencyRepo = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
+        $emergency = $emergencyRepo->find($id);
+        
+        $json = $this->getRequest()->getContent();
+        $json_decode = json_decode($json, true);     
+        
+        foreach ($json_decode as $offerArray) {
+            foreach ($offerArray as $offer) {
+                $offers = new Offers();
+                $offers->setEmergency($emergency);
+                $offers->setType($offer['type']);
+                $offers->setTitle($offer['title']);
+                $offers->setQuantity($offer['quantity']);
+                $offers->setMail($offer['mail']);
+
+                $em->persist($offers);
+            }
+            
+            
+
+        }
+        
+        $em->flush();
+        
+        $response = new Response(json_encode(array('status' => 'ok')));
+        return $response;
     }
     
 } 
