@@ -146,39 +146,39 @@ $(document).ready(function() {
     }
 
     function insertDebug() {
-        status = $('<div/>', {
-            id: 'status'
-        });
+        // status = $('<div/>', {
+        //     id: 'status'
+        // });
         
-        clientId = $('<div/>', {
-            id: 'clientId'
-        });
+        // clientId = $('<div/>', {
+        //     id: 'clientId'
+        // });
 
-        tot = $('<span/>', {
-            id: 'tot',
-            text: '0'
-        });
+        // tot = $('<span/>', {
+        //     id: 'tot',
+        //     text: '0'
+        // });
 
-        online = $('<div/>', {
-            id: 'online',
-            text: ' players online.'
-        });
+        // online = $('<div/>', {
+        //     id: 'online',
+        //     text: ' players online.'
+        // });
 
-        online.prepend(tot);
+        // online.prepend(tot);
 
-        defaultDebug = $('<div/>', {
-            id: 'default-debug'
-        }).append( status )
-          .append( clientId )
-          .append( online );
+        // defaultDebug = $('<div/>', {
+        //     id: 'default-debug'
+        // }).append( status )
+        //   .append( clientId )
+        //   .append( online );
 
-        $('body').append( defaultDebug );
+        // $('body').append( defaultDebug );
     }
 
     function init() {
         insertDebug();
 
-        status.html("Connecting...");
+        // status.html("Connecting...");
 
         $(document).keyup(function(e) {
             if (e.keyCode === 220) { //backslash
@@ -210,24 +210,24 @@ $(document).ready(function() {
     */
 
     socket.on('connect', function() {
-        status.html("Connected.");
+        // status.html("Connected.");
         log("Connected.");
     });
 
     socket.on('disconnect', function() {
-        status.html("Disconnected.");
+        // status.html("Disconnected.");
         log("Disconnected.");
     });
 
     socket.on('tot', function(data) {
-        tot.html(data.tot);
+        // tot.html(data.tot);
         log("Current players number: "+ data.tot);
     });
 
     socket.on('join', function(data) {
         player = jQuery.extend(true, {}, data.player);
 
-        clientId.html(data.player.id);
+        // clientId.html(data.player.id);
 
         log('You have joined the server. (id: '+ data.player.id +').');
     });
