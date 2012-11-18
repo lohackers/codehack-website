@@ -1,0 +1,31 @@
+{% extends 'CodeHackCommonAssetsBundle:Default:index.html.twig' %}
+
+{% block content %}
+<!--Header-->
+<header>
+    <div id="header-inner">
+        <!--Logo-->
+        <a href="/"><h1 id="website-logo">H-elp</h1></a>
+
+        <!--Main menu-->
+        <nav>
+            <ul>
+                <li class="nav-item_search-bg"><a href="#">Search</a></li>
+                <li class="nav-item_location-bg"><a href="#">Location</a></li>
+                <li class="nav-item_flood-bg"><a href="#">Flood</a></li>
+                <li class="nav-item_quake-bg"><a href="#">Earth quake</a></li>
+                <li class="nav-item_fire-bg"><a href="#">Fire</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<div id="main_container">
+<form action="{{ path('thankyou') }}" method="post">
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>    
+</div>
+{% endblock content %}
