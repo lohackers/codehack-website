@@ -186,7 +186,14 @@ class DefaultController extends Controller
         
         $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
         $emergency = $em->find($id);
-        $peoples = $emergency->getPeople(); //prendiamo tutte le richieste di persone
+        
+        try {          
+          $peoples = $emergency->getPeople(); //prendiamo tutte le richieste di persone  
+        } catch (Exception $exc) {
+          echo $exc->getTraceAsString();
+        }
+
+        
         foreach ($peoples as $key => $people) {
           $total  = rand(0, 90);
           $people_json[] = array(
@@ -197,7 +204,14 @@ class DefaultController extends Controller
           );
         }
         
-        $materials = $emergency->getMaterial(); //prendiamo tutte le richieste di persone
+        try {
+          $materials = $emergency->getMaterial(); //prendiamo tutte le richieste di persone
+          
+        } catch (Exception $exc) {
+          echo $exc->getTraceAsString();
+        }
+
+        
         foreach ($materials as $key => $material) {
           $total  = rand(0, 90);
           $material_json[] = array(
@@ -208,15 +222,22 @@ class DefaultController extends Controller
           );
         }
         
-        $moneys = $emergency->getMoney(); //prendiamo tutte le richieste di persone
+        try {
+          $moneys = $emergency->getMoney(); //prendiamo tutte le richieste di persone
+          
+        } catch (Exception $exc) {
+          echo $exc->getTraceAsString();
+        }
+        
+        
         foreach ($moneys as $key => $money) {
           $total  = rand(0, 90);
           $money_json[] = array(
               "total" => $total ,
               "remaining" => rand(0, $total),
-              "description" => $people->getDescription() ,
-              "title" => $people->getTitle(),	//Primary key
-              "unitcost" => $people->getUnitcost()
+              "description" => $money->getDescription() ,
+              "title" => $money->getTitle(),	//Primary key
+              "unitcost" => $money->getUnitcost()
           );
         }
         
