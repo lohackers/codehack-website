@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new CodeHack\Api\MobileBundle\CodeHackApiMobileBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\RestBundle\FOSRestBundle(),
+            new CodeHack\Api\NodeBundle\CodeHackApiNodeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
