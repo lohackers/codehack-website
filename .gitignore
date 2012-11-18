@@ -22,4 +22,4 @@ app/config/parameters.yml
 .DS_Store
 
 # SASS CACHE
-*/.sass-cache/*
+.sass-cache
