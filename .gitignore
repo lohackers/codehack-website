@@ -20,3 +20,6 @@ app/config/parameters.yml
 
 # Mac files
 .DS_Store
+
+# SASS CACHE
+*/.sass-cache/*
