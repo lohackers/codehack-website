@@ -58,5 +58,14 @@ class DefaultController extends Controller
     {
         return array();
     }    
+
+    /**
+     * @Route("/donation", name="donation")
+     * @Template()
+     */
+    public function donationAction()
+    {
+        return $this->render('CodeHackHomePageBundle:Default:donation_form.html.twig') ;
+    }    
     
 }
