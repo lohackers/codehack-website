@@ -9,11 +9,11 @@
 body {
 	font-family: $font-family;
 	color: link-hover-color;
-	background: url('../img/bg_main.png') repeat center center #fff;
+	background: url('#{$img_source_url}/bg_main.png') repeat center center #fff;
 }
 
 header{
-	background:url('../img/header_pattern.png') repeat 0 0 #111;
+	background:url('#{$img_source_url}/header_pattern.png') repeat 0 0 #111;
 	height:70px;
 
 	#header-inner{
@@ -29,7 +29,7 @@ header{
 			float:left;
 			width:200px;
 			height:70px;
-			background:url('../img/website_logo.png') no-repeat 0 0 transparent;
+			background:url('#{$img_source_url}/website_logo.png') no-repeat 0 0 transparent;
 			}
 
 		nav{
@@ -47,7 +47,7 @@ header{
 				outline:0;
 				}
 
-			ul{background:url('../img/main_nav_bg_search.png') no-repeat 440px 0 transparent;}
+			ul{background:url('#{$img_source_url}/main_nav_bg_search.png') no-repeat 440px 0 transparent;}
 
 			li{
 				float: left;
@@ -56,14 +56,14 @@ header{
 				margin:0 -43px 0 0;
 				overflow:hidden;
 				background:#FFF;
-				background:url('../img/main_nav_bg_normal.png') no-repeat 0 0 transparent;
+				background:url('#{$img_source_url}/main_nav_bg_normal.png') no-repeat 0 0 transparent;
 
 				// Background classes
-				&.nav-item_search-bg{background-image:url('../img/main_nav_bg_search.png');}
-				&.nav-item_location-bg{background-image:url('../img/main_nav_bg_location.png');}
-				&.nav-item_flood-bg{background-image:url('../img/main_nav_bg_flood.png');}
-				&.nav-item_quake-bg{background-image:url('../img/main_nav_bg_quake.png');}
-				&.nav-item_fire-bg{background-image:url('../img/main_nav_bg_fire.png');}
+				&.nav-item_search-bg{background-image:url('#{$img_source_url}/main_nav_bg_search.png');}
+				&.nav-item_location-bg{background-image:url('#{$img_source_url}/main_nav_bg_location.png');}
+				&.nav-item_flood-bg{background-image:url('#{$img_source_url}/main_nav_bg_flood.png');}
+				&.nav-item_quake-bg{background-image:url('#{$img_source_url}/main_nav_bg_quake.png');}
+				&.nav-item_fire-bg{background-image:url('#{$img_source_url}/main_nav_bg_fire.png');}
 				a{
 					display: block;
 					float: left;
@@ -80,7 +80,7 @@ h3{
 	z-index: 999;
 	position: relative;
 	font-size: 37px;
-	background: url('../img/triangle-pink.png') no-repeat center bottom transparent;
+	background: url('#{$img_source_url}/triangle-pink.png') no-repeat center bottom transparent;
 	height: 150px;
 	margin-bottom: 0;
 }
@@ -141,7 +141,7 @@ h4{
 	margin: 0 auto;
 	overflow: hidden;
 	&.people {
-		background: url('../img/people-icon.png') repeat left bottom transparent;
+		background: url('#{$img_source_url}/people-icon.png') repeat left bottom transparent;
 	}
 	.horizontal_meter_value {
 		height: 116px;
@@ -150,7 +150,7 @@ h4{
 		text-indent: -1000px;
 		overflow: hidden;
 		&.people {
-			background: url('../img/people-icon.png') repeat left top transparent;
+			background: url('#{$img_source_url}/people-icon.png') repeat left top transparent;
 		}
 	}
 }
