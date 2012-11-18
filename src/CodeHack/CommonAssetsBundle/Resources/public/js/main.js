@@ -18,7 +18,7 @@ $(document).ready(function(){
 		$('#map_canvas').gmap('addControl', 'tags-control', google.maps.ControlPosition.TOP_LEFT);
 		$('#map_canvas').gmap('addControl', 'radios', google.maps.ControlPosition.TOP_LEFT);
 
-		var images = ['../img/placemarker/fire.png'];
+		var images = ['/bundles/codehackcommonassets/img/placemarker/fire.png'];
 		var tags = ['jQuery', 'Google maps', 'Plugin', 'SEO', 'Java', 'PHP', 'C#', 'Ruby', 'JavaScript', 'HTML'];
 		//$('#tags').append('<option value="all">All</option>');
 
