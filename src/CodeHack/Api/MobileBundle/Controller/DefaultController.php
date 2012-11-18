@@ -226,20 +226,15 @@ class DefaultController extends Controller
         $json = $this->getRequest()->getContent();
         $json_decode = json_decode($json, true);     
         
-        foreach ($json_decode as $offerArray) {
-            foreach ($offerArray as $offer) {
+        foreach ($json_decode['offers'] as $offer) {
                 $offers = new Offers();
                 $offers->setEmergency($emergency);
                 $offers->setType($offer['type']);
                 $offers->setTitle($offer['title']);
                 $offers->setQuantity($offer['quantity']);
-                $offers->setMail($offer['mail']);
-
+                $offers->setMail($json_decode['email']);
+                
                 $em->persist($offers);
-            }
-            
-            
-
         }
         
         $em->flush();
