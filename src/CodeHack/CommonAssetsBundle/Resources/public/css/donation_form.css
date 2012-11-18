@@ -1,0 +1,79 @@
+#content_container #form-donation-container {
+  width: 960px;
+  margin: 0 auto; }
+  #content_container #form-donation-container h2 {
+    font-size: 90px;
+    text-align: center;
+    text-align: center;
+    background: url("../img/triangle-pink.png") no-repeat center bottom transparent;
+    padding: 0 0 100px 0; }
+  #content_container #form-donation-container form fieldset {
+    border: 20px solid #F3F3F3;
+    margin: 40px 40px 120px 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px; }
+    #content_container #form-donation-container form fieldset p {
+      margin: 0;
+      padding: 0; }
+    #content_container #form-donation-container form fieldset p.input-container {
+      width: 80%;
+      margin: 30px 10%; }
+    #content_container #form-donation-container form fieldset label {
+      position: relative;
+      left: 100%; }
+    #content_container #form-donation-container form fieldset input[type="text"] {
+      color: #AAA;
+      border: 0;
+      border-bottom: 1px solid #BBB;
+      background: #FFF;
+      display: block;
+      width: 100%;
+      margin: 3px 0 2px 0;
+      padding: 0;
+      height: 76px;
+      line-height: 76px;
+      text-indent: 1em;
+      font-size: 30px;
+      font-family: Georgia,serif;
+      font-style: italic;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -webkit-transition: all 0.2s ease-out;
+      /* Saf3.2+, Chrome */
+      -moz-transition: all 0.2s ease-out;
+      /* FF4+ */
+      -ms-transition: all 0.2s ease-out;
+      /* IE10 */
+      -o-transition: all 0.2s ease-out;
+      /* Opera 10.5+ */
+      transition: all 0.2s ease-out; }
+      #content_container #form-donation-container form fieldset input[type="text"]:focus, #content_container #form-donation-container form fieldset input[type="text"]:active {
+        border: 3px solid #FF6565;
+        outline: 0;
+        margin: 0; }
+    #content_container #form-donation-container form fieldset input[type="submit"] {
+      background: #FF6565;
+      color: #FFF;
+      border: 0;
+      border-top: 2px solid #FFAD86;
+      border-bottom: 1px solid #F11414;
+      border-radius: 3px;
+      outline: 0;
+      padding: 20px 30px;
+      font-size: 32px;
+      text-transform: uppercase;
+      margin: 60px 10%;
+      float: right;
+      font-family: "Bitter", Courier, Monaco, serif;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box; }
