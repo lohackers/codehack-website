@@ -1,0 +1,14 @@
+{
+    "type": "HQ",
+    "level": "MEDIUM",
+    "intensity": 6.1,
+    "timestamp": "2012-11-21 10:10:10",
+    "loc": {
+        "lat": 45.563101016195546,
+        "lon": 12.42467099999999
+    },
+    "extra": {
+        "description": "Roncade",
+        "depth": "10km"
+    }
+}
