@@ -26,8 +26,6 @@ class AppKernel extends Kernel
             new CodeHack\HomePageBundle\CodeHackHomePageBundle(),
             new CodeHack\BoilerplateBundle\CodeHackBoilerplateBundle(),
             new CodeHack\Api\MobileBundle\CodeHackApiMobileBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new FOS\RestBundle\FOSRestBundle(),
             new CodeHack\Api\NodeBundle\CodeHackApiNodeBundle(),
         );
 
