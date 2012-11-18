@@ -1,7 +1,8 @@
-/***********************************************************************************************************************
-*	MAPPA
-***********************************************************************************************************************/
 $(document).ready(function(){
+	/** * * * * * * * *
+	 * MAP CREATION 
+	** * * * * * * * */
+
 	var lngSpan = 45.56310;
 	var latSpan = 12.42467;
 
@@ -29,6 +30,26 @@ $(document).ready(function(){
 				$('#map_canvas').gmap('openInfoWindow', { 'content': visibleInViewport }, this);
 			});
 	});
+
+	/** * * * * * * * *
+	 * PIE CHARTS CREATE
+	** * * * * * * * */
+    $('.percentage').easyPieChart({
+      	animate: 1000
+    });
+    
+    $('.percentage-light').easyPieChart({
+      	size: 250,
+       	barColor: '#ce2828',
+       	trackColor: '#ff6565',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: 45,
+        animate: 1000
+    });
+
+    //per aggiornare la label del valore utilizzare
+    //$(ISTANZA_GRAFICO_'span').text(newValue+' %');
 });
 
 /** * * * * * * * *
@@ -60,4 +81,16 @@ $(function() {
 				jQuery(this).removeClass("bright");
 				}
 			});
+	});
+
+/** * * * * * * * *
+ * AIUTO BUTTON ANIMATION
+** * * * * * * * */
+$(function(){
+	$('.call-to-action_link').hover(function(){
+		$(this).find('a').animate({'right':'72px'},{queue:false, duration:300});
+		},
+	function(){
+		$(this).find('a').animate({'right':'80px'},{queue:false, duration:300});
+		});
 	});

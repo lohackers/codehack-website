@@ -11,14 +11,13 @@
 {% block stylesheets %} 
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/common.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/codehackcommonassets/css/map.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 {% endblock stylesheets %}
 
 {% block content %}
- <!--Header-->
+<!--Header-->
 <header>
     <div id="header-inner">
         <!--Logo-->
@@ -52,17 +51,17 @@
             </dl>
             <dl class="people-definition">
                 <dt>infermieri</dt>
-                <dd>80</dd>
-                <dd>11</dd>
+                <dd style="float:left">80</dd>
+                <dd style="float:right">11</dd>
                 <dt>dottori</dt>
-                <dd>5</dd>
-                <dd>1</dd>
+                <dd style="float:left">5</dd>
+                <dd style="float:right">1</dd>
                 <dt>spalatori</dt>
-                <dd>5</dd>
-                <dd>5</dd>
+                <dd style="float:left">5</dd>
+                <dd style="float:right">5</dd>
                 <dt>aiutanti</dt>
-                <dd>10</dd>
-                <dd>2</dd>
+                <dd style="float:left">10</dd>
+                <dd style="float:right">2</dd>
             </dl>
             <dl class="desired">
                 <dt>Ce ne servono</dt>
@@ -83,42 +82,55 @@
             </dl>
             <dl class="money-definition">
                 <dt>pasti da</dt>
-                <dd>100(5&euro;)</dd>
-                <dd>20(5&euro;)</dd>
+                <dd style="float:left">100(5&euro;)</dd>
+                <dd style="float:right">20(5&euro;)</dd>
                 <dt>coperte da</dt>
-                <dd>100(10&euro;)</dd>
-                <dd>20(10&euro;)</dd>
+                <dd style="float:left">100(10&euro;)</dd>
+                <dd style="float:right">20(10&euro;)</dd>
                 <dt>tenda da</dt>
-                <dd>10(100&euro;)</dd>
-                <dd>5(100&euro;)</dd>
+                <dd style="float:left">10(100&euro;)</dd>
+                <dd style="float:right">5(100&euro;)</dd>
             </dl>
             <dl class="desired">
                 <dt>Ci servono</dt>
                 <dd>2500 <span>&euro;</span></dd>
             </dl>
 
-            <!-- METER VERTICALE: impostare il valore percentuale in modo dinamico -->
-            <div class="vertical_meter_container">
-                <div class="vertical_meter_value" style="height: 25%">25%</div>
+            <div class="vertical_meter">
+                <!-- METER VERTICALE: impostare il valore percentuale in modo dinamico -->
+                <div class="vertical_meter_container">
+                    <div class="vertical_meter_value" style="height: 25%">25%</div>
+                </div>
+                <!--Inject the value into the inline-style-->
+                <p class="we-rised-text" style="bottom:25%">
+                    Abbiamo raccolto<br />
+                    <strong>2.000&euro;</strong>
+                </p>
             </div>
             
         </section>
         <section id="materials" class="help-section">
             <h4>Materiali</h4>
-            <dl class="obtained">
-                <dt>Sono stati promessi</dt>
-                <dd>40</dd>
-            </dl>
-            <dl class="materials-definition">
-                <dt>vestiti</dt>
-                <dt>materiale 1</dt>
-                <dd>42</dd>
-                <dd>100</dd>
-            </dl>
-            <dl class="desired">
-                <dt>Ce ne servono</dt>
-                <dd>100</dd>
-            </dl>
+            <div class="obtained">
+                <div class="percentage-light" data-percent="60">
+                    <div class="materiale">Vestiti</div>
+                    <span>60 %</span>
+                </div>
+            </div>
+
+            <div class="obtained">
+                <div class="percentage-light" data-percent="20">
+                    <div class="materiale">Pentole</div>
+                    <span>30 %</span>
+                </div>
+            </div>
+
+            <div class="desired">
+                <div class="percentage-light" data-percent="90">
+                    <div class="materiale">Secchi</div>
+                    <span>90 %</span>
+                </div>
+            </div>
         </section>
     </div>
 {% endblock content %}
@@ -128,6 +140,8 @@
     <script>window.jQuery || document.write('<script src="{{ asset('bundles/codehackcommonassets/js/vendor/jquery-1.8.2.min.js') }}><\/script>')</script>
     <script src="{{ asset('bundles/codehackcommonassets/js/plugins.js') }}"></script>
     <script src="{{ asset('bundles/codehackcommonassets/js/main.js') }}"></script>
+    <script src="{{ asset('bundles/codehackcommonassets/js/vendor/jquery.easy-pie-chart.js') }}"></script>
+    <script src="{{ asset('bundles/codehackcommonassets/js/vendor/excanvas.js') }}"></script>
     <script src="{{ asset('bundles/codehackcommonassets/js/vendor/jquery.ui.map.js') }}"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu5MGJH3YE014bbjfhfjD0gE9KBr_6M7c&sensor=true"></script>
 {% endblock javascripts %}
