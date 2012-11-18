@@ -48,6 +48,11 @@ class Offers
      * @ORM\Column(name="mail", type="string", length=255)
      */
     private $mail;    
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Emergency", inversedBy="people")
+     */
+    private $emergency;    
 
     /**
      * Get id
@@ -150,4 +155,27 @@ class Offers
     {
         return $this->mail;
     }
+    
+    /**
+     * Set emergency
+     *
+     * @param \CodeHack\CoreBundle\Entity\Emergency $emergency
+     * @return People
+     */
+    public function setEmergency(\CodeHack\CoreBundle\Entity\Emergency $emergency = null)
+    {
+        $this->emergency = $emergency;
+    
+        return $this;
+    }
+
+    /**
+     * Get emergency
+     *
+     * @return \CodeHack\CoreBundle\Entity\Emergency 
+     */
+    public function getEmergency()
+    {
+        return $this->emergency;
+    }    
 }
