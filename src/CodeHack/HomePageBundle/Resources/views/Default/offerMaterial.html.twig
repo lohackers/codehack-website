@@ -1,0 +1,43 @@
+{% extends 'CodeHackCommonAssetsBundle:Default:index.html.twig' %}
+
+{% block content %}
+<!--Header-->
+<header>
+    <div id="header-inner">
+        <!--Logo-->
+        <a href="/"><h1 id="website-logo">H-elp</h1></a>
+
+        <!--Main menu-->
+        <nav>
+            <ul>
+                <li class="nav-item_search-bg"><a href="#">Search</a></li>
+                <li class="nav-item_location-bg"><a href="#">Location</a></li>
+                <li class="nav-item_flood-bg"><a href="#">Flood</a></li>
+                <li class="nav-item_quake-bg"><a href="#">Earth quake</a></li>
+                <li class="nav-item_fire-bg"><a href="#">Fire</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<div id="main_container">
+<form action="/app_dev.php/thankyou" method="post">
+    <div id="codehack_corebundle_offerstype">
+      <div><label for="codehack_corebundle_offerstype_title" class="required">Dona materiale</label>
+        <select id="codehack_corebundle_offerstype_title" name="codehack_corebundle_offerstype[title]" required="required">
+          <option value="Dottore">Vestiti</option>
+          <option value="Infermiere">Cibo</option>
+          <option value="Spalatori">Cartoleria</option>
+          <option value="Aiutanti">Scarpe</option>
+        </select></div>
+        <div><label for="codehack_corebundle_offerstype_mail" class="required">Quantità</label>
+          <input type="text" maxlength="2" size="2" id="codehack_corebundle_offerstype_mail" name="codehack_corebundle_offerstype[mail]" required="required" maxlength="255" /></div>
+        <input type="hidden" id="codehack_corebundle_offerstype__token" name="codehack_corebundle_offerstype[_token]" value="2094272ba0164de5453e2022da99417915effac8" /></div>
+        <div><label for="codehack_corebundle_offerstype_mail" class="required">Contatto email </label>
+          <input type="text" id="codehack_corebundle_offerstype_mail" name="codehack_corebundle_offerstype[mail]" required="required" maxlength="255" /></div>
+        <input type="hidden" id="codehack_corebundle_offerstype__token" name="codehack_corebundle_offerstype[_token]" value="2094272ba0164de5453e2022da99417915effac8" /></div>
+<input type="submit" value="Dona!" />
+</form>  
+</div>
+{% endblock content %}

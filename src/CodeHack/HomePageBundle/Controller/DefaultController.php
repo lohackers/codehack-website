@@ -23,7 +23,7 @@ class DefaultController extends Controller
      * @Route("/emergency/{id}/offer/people")
      * @Template()
      */
-    public function emergencyAction($id)
+    public function offerPeopleAction($id)
     {
         $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
         $emergencies = $em->find($id);
@@ -32,6 +32,21 @@ class DefaultController extends Controller
         
         $form = $this->createForm(new \CodeHack\CoreBundle\Form\OffersType());
         
+        return array('form' => $form->createView());
+    }
+    
+    /**
+     * @Route("/emergency/{id}/offer/material")
+     * @Template()
+     */
+    public function offerMaterialAction($id)
+    {
+        $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
+        $emergencies = $em->find($id);
+        
+        $offers = $emergencies->getOffers();
+        $form = $this->createForm(new \CodeHack\CoreBundle\Form\OffersType());
+      
         return array('form' => $form->createView());
     }
     
