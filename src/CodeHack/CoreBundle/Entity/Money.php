@@ -41,6 +41,13 @@ class Money
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unitcost", type="decimal")
+     */
+    private $unitcost;
   
      /**
      * @ORM\ManyToOne(targetEntity="Emergency", inversedBy="money")
@@ -147,5 +154,28 @@ class Money
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set unitcost
+     *
+     * @param float $unitcost
+     * @return Money
+     */
+    public function setUnitcost($unitcost)
+    {
+        $this->unitcost = $unitcost;
+    
+        return $this;
+    }
+
+    /**
+     * Get unitcost
+     *
+     * @return float 
+     */
+    public function getUnitcost()
+    {
+        return $this->unitcost;
     }
 }

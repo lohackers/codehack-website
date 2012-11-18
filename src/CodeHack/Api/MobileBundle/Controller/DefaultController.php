@@ -60,6 +60,9 @@ class DefaultController extends Controller
     public function emergencyDetailAction($id)
     {
         $people_json = array();
+        $money_json = array();
+        $material_json = array();
+        
         $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
         $emergency = $em->find($id);
         $peoples = $emergency->getPeople(); //prendiamo tutte le richieste di persone
@@ -70,6 +73,29 @@ class DefaultController extends Controller
               "remaining" => rand(0, $total),
               "description" => $people->getDescription() ,
               "title" => $people->getTitle()	//Primary key
+          );
+        }
+        
+        $materials = $emergency->getMaterial(); //prendiamo tutte le richieste di persone
+        foreach ($materials as $key => $material) {
+          $total  = rand(0, 90);
+          $material_json[] = array(
+              "total" => $total ,
+              "remaining" => rand(0, $total),
+              "description" => $material->getDescription() ,
+              "title" => $material->getTitle()	//Primary key
+          );
+        }
+        
+        $moneys = $emergency->getMoney(); //prendiamo tutte le richieste di persone
+        foreach ($moneys as $key => $money) {
+          $total  = rand(0, 90);
+          $money_json[] = array(
+              "total" => $total ,
+              "remaining" => rand(0, $total),
+              "description" => $people->getDescription() ,
+              "title" => $people->getTitle(),	//Primary key
+              "unitcost" => $people->getUnitcost()
           );
         }
         
@@ -85,7 +111,9 @@ class DefaultController extends Controller
               "level" => $emergency->getLevel(),
               "intensity" => $emergency->getIntensity(),
               "timestamp" => $date->format("Y-m-d h:m:s"),
-              "people" => $people_json
+              "people" => $people_json,
+              "money" => $money_json,
+              "material" => $material_json
           );
         
         $response = new Response(json_encode($emergencies_json));
