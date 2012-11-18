@@ -285,7 +285,7 @@ $(document).ready(function() {
                 'position': new google.maps.LatLng(sensorData.loc.lon, sensorData.loc.lat)
             })
             .click(function() {
-                var content = '<h3>Treviso is on fire!</h3><p>Necessari 2000€</p>';
+                var content = '<h2>EMERGENZA!</h2><dl id="emergency-definition"><dt>Tipo</dt><dd>incendio</dd><dt>Gravità</dt><dd>media</dd><dt>Località</dt><dd>Roncade, Treviso</dd><dt>Coordinate</dt><dd>45.56310 | 12.42467</dd><dt>Orario</dt><dd>15.30</dd></dl><a href="#" class="show">Aiuta!</a>';
                 var visibleInViewport = (
                     $('#map_canvas').gmap('inViewport', $(this)[0]) ) ? content : '';
                     $('#map_canvas').gmap('openInfoWindow', { 'content': visibleInViewport }, this);
