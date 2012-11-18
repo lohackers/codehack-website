@@ -86,6 +86,11 @@ class Emergency
      */
     private $material;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Offers", mappedBy="emergency")
+     */
+    private $offers;    
+    
 
     /**
      * Get id
@@ -395,5 +400,38 @@ class Emergency
     public function getMaterial()
     {
         return $this->material;
+    }
+
+    /**
+     * Add offers
+     *
+     * @param \CodeHack\CoreBundle\Entity\Offers $offers
+     * @return Emergency
+     */
+    public function addOffer(\CodeHack\CoreBundle\Entity\Offers $offers)
+    {
+        $this->offers[] = $offers;
+    
+        return $this;
+    }
+
+    /**
+     * Remove offers
+     *
+     * @param \CodeHack\CoreBundle\Entity\Offers $offers
+     */
+    public function removeOffer(\CodeHack\CoreBundle\Entity\Offers $offers)
+    {
+        $this->offers->removeElement($offers);
+    }
+
+    /**
+     * Get offers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOffers()
+    {
+        return $this->offers;
     }
 }
