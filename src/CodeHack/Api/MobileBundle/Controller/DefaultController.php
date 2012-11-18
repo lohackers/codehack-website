@@ -26,22 +26,25 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getRepository("CodeHackCoreBundle:Emergency");
         $emergencies = $em->findAll();
         $emergencies_json = array();
+        $i=0;
         foreach ($emergencies as $key => $emergency) {
+          
           $date = $emergency->getTimestamp();
           $emergencies_json['emergencies'][] = array(
-              "id" => $emergency->getID(),
+              "id" => (string)$emergency->getID(),
               "loc" => array(
-                  "lon" => $emergency->getLng(),
-                  "lat" => $emergency->getLat()
+                  "lon" => (int)$emergency->getLng(),
+                  "lat" => (int)$emergency->getLat()
               ),
               "type" => $emergency->getType(),
               "level" => $emergency->getLevel(),
-              "intensity" => $emergency->getIntensity(),
+              "intensity" => (int)$emergency->getIntensity(),
               "timestamp" => $date->format("Y-m-d h:m:s"),
           );
         }
         
         $response = new Response(json_encode($emergencies_json));
+        $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
     
@@ -94,13 +97,39 @@ class DefaultController extends Controller
             );
             $this->addPeople($data_people);
             break;
-
+          case "fire":
+            $data_money = array(
+                "title" => "Pasti",
+                "description" => "beni di primo consumo",
+                "quantity" => 100,
+                "unitcost" => 5,
+                "emergency" => $emergency
+            );
+            $this->addMoney($data_money);
+            
+            $data_material = array(
+                "title" => "Coperte",
+                "description" => "",
+                "quantity" => 30,
+                "emergency" => $emergency
+            );
+            $this->addMaterial($data_material);
+            
+            $data_people = array(
+                "title" => "Pompieri",
+                "description" => "ripulire le macerie",
+                "quantity" => 2,
+                "emergency" => $emergency
+            );
+            $this->addPeople($data_people);
+            break;
           default:
         break;
         }
         
         $em->flush();
         $response = new Response(json_encode("status:ok"));
+        $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
     
@@ -209,6 +238,7 @@ class DefaultController extends Controller
           );
         
         $response = new Response(json_encode($emergencies_json));
+        $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
     
@@ -240,6 +270,7 @@ class DefaultController extends Controller
         $em->flush();
         
         $response = new Response(json_encode(array('status' => 'ok')));
+        $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
     
