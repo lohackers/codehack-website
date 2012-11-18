@@ -41,7 +41,7 @@ $(function() {
 		function(){
 			jQuery(this).animate({
 				'backgroundPosition': '-160px 0'
-				}, 60, 'linear');
+				}, 200, 'linear');
 			if(jQuery(this).is(".current") || jQuery(this).is(".active")){
 				jQuery(this).addClass("dark");
 				}
@@ -52,7 +52,7 @@ $(function() {
 		function(){
 			jQuery(this).animate({
 				'backgroundPosition': '0 0'
-				}, 60, 'linear');
+				}, 0, 'linear');
 			if(jQuery(this).is(".dark")){
 				jQuery(this).removeClass("dark");
 				}
