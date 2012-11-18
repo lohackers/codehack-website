@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use CodeHack\CoreBundle\Entity\Emergency;
+use CodeHack\CoreBundle\Entity\Money;
+use CodeHack\CoreBundle\Entity\People;
+use CodeHack\CoreBundle\Entity\Material;
 
 class DefaultController extends Controller
 {
@@ -48,10 +51,98 @@ class DefaultController extends Controller
      */
     public function addEmergencyAction()
     {
-        $response = new Response(json_encode("caffelatte:bocchini"));
+      //var_dump($this->getRequest()->getContent());die;
+        $em  = $this->getDoctrine()->getEntityManager();
+        $emergency_data = json_decode($this->getRequest()->getContent());
+        $data = new \DateTime('now');
+        $emergency = new Emergency();
+        $emergency->setApproved(0);
+        $emergency->setIntensity($emergency_data->intensity);
+        $emergency->setLat($emergency_data->loc->lat);
+        $emergency->setLng($emergency_data->loc->lon);
+        $emergency->setLevel($emergency_data->level);
+        $emergency->setTimestamp($data);
+        $emergency->setType($emergency_data->type);
+        $em->persist($emergency);
+        
+        switch ($emergency_data->type) {
+          case "HQ":
+          case "earthquake":
+            $data_money = array(
+                "title" => "Cibo",
+                "description" => "beni di primo consumo",
+                "quantity" => 100,
+                "unitcost" => 2,
+                "emergency" => $emergency
+            );
+            $this->addMoney($data_money);
+            
+            $data_material = array(
+                "title" => "vestiti",
+                "description" => "maglie per i bambini",
+                "quantity" => 30,
+                "emergency" => $emergency
+            );
+            $this->addMaterial($data_material);
+            
+            $data_people = array(
+                "title" => "Spostare Massi",
+                "description" => "ripulire le macerie",
+                "quantity" => 2,
+                "emergency" => $emergency
+            );
+            $this->addPeople($data_people);
+            break;
+
+          default:
+        break;
+        }
+        
+        $em->flush();
+        $response = new Response(json_encode("status:ok"));
         return $response;
     }
     
+    //facciamo le cose fatte male, ma un po' meno ... fa ridere
+    private function addMoney($data){
+      
+        $em  = $this->getDoctrine()->getEntityManager();
+        $money = new Money();
+        $money->setTitle($data['title']);
+        $money->setDescription($data['description']);
+        $money->setQuantity($data['quantity']);
+        $money->setUnitcost($data['unitcost']);
+        $money->setEmergency($data['emergency']);
+        
+        $em->persist($money);
+        $em->flush();
+    }
+    
+    private function addPeople($data){
+        $em  = $this->getDoctrine()->getEntityManager();
+        $pleone = new People();
+        $pleone->setTitle($data['title']);
+        $pleone->setDescription($data['description']);
+        $pleone->setQuantity($data['quantity']);
+        $pleone->setEmergency($data['emergency']);
+        
+        $em->persist($pleone);
+        $em->flush();
+    }
+    
+    private function addMaterial($data){
+        $em  = $this->getDoctrine()->getEntityManager();
+        $material = new Material();
+        $material->setTitle($data['title']);
+        $material->setDescription($data['description']);
+        $material->setQuantity($data['quantity']);
+        $material->setEmergency($data['emergency']);
+        
+        $em->persist($material);
+        $em->flush();
+    }
+
+        
     /** 
      * @Route("/emergencies/{id}")
      * @Method({"GET"})
