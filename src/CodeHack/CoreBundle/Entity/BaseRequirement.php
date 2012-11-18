@@ -127,4 +127,27 @@ class BaseRequirement
     {
         return $this->title;
     }
+
+    /**
+     * Set emergency
+     *
+     * @param \CodeHack\CoreBundle\Entity\Emergency $emergency
+     * @return BaseRequirement
+     */
+    public function setEmergency(\CodeHack\CoreBundle\Entity\Emergency $emergency = null)
+    {
+        $this->emergency = $emergency;
+    
+        return $this;
+    }
+
+    /**
+     * Get emergency
+     *
+     * @return \CodeHack\CoreBundle\Entity\Emergency 
+     */
+    public function getEmergency()
+    {
+        return $this->emergency;
+    }
 }

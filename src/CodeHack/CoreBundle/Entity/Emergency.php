@@ -255,4 +255,37 @@ class Emergency
     {
         return $this->approved;
     }
+
+    /**
+     * Add requirements
+     *
+     * @param \CodeHack\CoreBundle\Entity\BaseRequirement $requirements
+     * @return Emergency
+     */
+    public function addRequirement(\CodeHack\CoreBundle\Entity\BaseRequirement $requirements)
+    {
+        $this->requirements[] = $requirements;
+    
+        return $this;
+    }
+
+    /**
+     * Remove requirements
+     *
+     * @param \CodeHack\CoreBundle\Entity\BaseRequirement $requirements
+     */
+    public function removeRequirement(\CodeHack\CoreBundle\Entity\BaseRequirement $requirements)
+    {
+        $this->requirements->removeElement($requirements);
+    }
+
+    /**
+     * Get requirements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRequirements()
+    {
+        return $this->requirements;
+    }
 }
